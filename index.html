@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Magic 8 Ball</title>
+        <style type="text/css">
+            * {
+                font-family: sans-serif;
+            }
+            body {
+                background: linear-gradient(90deg, red, blue);
+            }
+
+            #content {
+                background: white;
+                width: 400px;
+                margin: auto;
+                text-align: center;
+                padding: 20px;
+                border-radius: 5px;
+            }
+
+            #eightBall {
+                width: 350px;
+                height: 350px;
+                background: black;
+                color: white;
+                margin: auto;
+                border-radius: 100%;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #answer {
+                font-size: 25px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Magic Eight ball</h1>
+            <h2>Type your question below:</h2>
+            <textarea id="questionArea" cols="30" rows="4"></textarea>
+            <br>
+            <button>Shake!</button>
+            <div id="eightBall">
+                <p id="answer">Ask again later!</p>
+            </div>
+        </div>
+        <script type= "text/javascript">
+        function generate_random(max_number){
+            return Math.round(Math.random()*max_number);
+        }
+        //Selected the elements ont he page to interact with
+        let button = document.querySelector("button");
+        let answer = document.querySelector("#answer");
+
+        button.addEventListener("click", function(){
+            // 0 ->     - “If you water the beans at night, a door swings left to right”.
+            // 1 ->     - “Red apples and green sauce make the best pillows for ants.”
+            // 2 ->     - “As the horse neighs the elephant speaks to the wandering nomad.”
+            let randomNumber = generate_random(3);
+            let answerText = "";
+
+            if (randomNumber === 0) {
+                answerText = "Try again later.";
+            } else if (randomNumber === 1) {
+                answerText = "If you water the beans at night, a door swings left to right.";
+            } else if (randomNumber === 2) {
+                answerText = "Red apples and green sauce make the best pillows for ants.";
+            } else if (randomNumber === 3) {
+                answerText = "As the horse neighs the elephant speaks to the wandering nomad.";
+            }
+
+            answer.innerHTML = answerText;
+
+        });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
